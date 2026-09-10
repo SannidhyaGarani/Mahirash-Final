@@ -10,7 +10,7 @@ const fadeUp = {
   viewport: { once: true, margin: '-60px' },
   transition: { duration: 0.7, ease: [0.215, 0.61, 0.355, 1] }
 };
-
+ 
 const EditorialStory = () => {
   return (
     <section className="py-10 md:py-28 bg-[#111111] overflow-hidden">
