@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-cream: #F7F2EA;
+  --color-brand-primary: #5A2D0C;
+  --color-brand-primary-light: #8B5A3C;
+  --color-brand-accent: #A85721;
+  --color-brand-accent-light: #C87A3A;
+  --color-brand-gray: #E6D8C3;
+  --color-brand-gray-dark: #333333;
+
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Nunito", sans-serif;
+  --font-heading: "Instrument Sans", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+  }
+
+  body {
+    @apply bg-[#f5f5f5] text-[#111111] font-sans antialiased min-h-screen text-[14px];
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-[#111111] font-heading;
+  }
+
+  ::selection {
+    background-color: #111111;
+    color: #ffffff;
+  }
+}
+
+/* Custom Swiper Pagination */
+.swiper-pagination-bullet {
+  width: 4px !important;
+  height: 4px !important;
+  background: rgba(0, 0, 0, 0.2) !important;
+  opacity: 1 !important;
+  transition: all 0.3s ease !important;
+  border-radius: 2px !important;
+}
+
+.swiper-pagination-bullet-active {
+  width: 20px !important;
+  opacity: 1 !important;
+  background: #111111 !important;
+  border-radius: 2px !important;
+}
+
+/* Testimonial dots override */
+.testimonial-dots .swiper-pagination-bullet {
+  width: 4px !important;
+  height: 4px !important;
+  border-radius: 2px !important;
+  background: rgba(0, 0, 0, 0.15) !important;
+  opacity: 1 !important;
+}
+
+.testimonial-dots .swiper-pagination-bullet-active {
+  width: 20px !important;
+  opacity: 1 !important;
+  background: #111111 !important;
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Enforce minimum font size of 14px across all elements */
+body,
+body * {
+  min-height: 0;
+}
+
+body :is([class*="text-xxs"],
+  [class*="text-[14px]"],
+  [class*="text-[9px]"],
+  [class*="text-[10px]"],
+  [class*="text-[11px]"],
+  [class*="text-[14px]"],
+  [class*="text-[13px]"]) {
+  /* font-size: 12px !important; */
+}
+
+body ::placeholder {
+  /* font-size: 12px !important; */
+}
+
+/* Shop Sidebar Typography Overrides */
+.shop-sidebar-badge {
+  font-size: 10px !important;
+  line-height: 1 !important;
+}
+
+.shop-sidebar-preset-btn {
+  /* font-size: 12px !important; */
+  white-space: nowrap !important;
+  line-height: 1.2 !important;
+}
+
+.shop-sidebar-label {
+  /* font-size: 12px !important; */
+  letter-spacing: 0.15em !important;
+}
+
+/* ── Mini Loader ── */
+.mini-loader-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 55vh;
+  background: #f5f5f5;
+}
+
+.mini-loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.mini-loader-ring-container {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mini-loader-ring {
+  width: 40px;
+  height: 40px;
+}
+
+.mini-loader-track {
+  stroke: rgba(0, 0, 0, 0.08);
+}
+
+.mini-loader-arc {
+  stroke: #c9a962;
+}
+
+.mini-loader-dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #c9a962;
+}
+
+.mini-loader-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: rgba(0, 0, 0, 0.4);
+  margin: 0;
+}
