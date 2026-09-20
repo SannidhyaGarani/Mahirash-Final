@@ -100,12 +100,12 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative h-[85vh] sm:h-[90vh] md:h-screen w-full overflow-hidden bg-black mt-[72px] md:mt-[115px]">
+    <section className="relative h-[85vh] sm:h-[90vh] md:h-screen w-full overflow-hidden bg-[#FAF8F5] mt-[72px] md:mt-[115px]">
       {/* Background Video Player */}
       <div className="absolute inset-0 z-0">
         {loading ? (
-          <div className="w-full h-full bg-zinc-950 animate-pulse flex items-center justify-center">
-            <div className="w-12 h-12 rounded-full border-2 border-white/20 border-t-white animate-spin" />
+          <div className="w-full h-full bg-[#FAF8F5] animate-pulse flex items-center justify-center">
+            <div className="w-12 h-12 rounded-full border-2 border-[#B8860B]/30 border-t-[#B8860B] animate-spin" />
           </div>
         ) : (
           <motion.div
@@ -130,22 +130,23 @@ const Hero = () => {
         )}
       </div>
 
-      {/* Subtle Aesthetic Edge Overlays for Seamless Navbar & Content Transition */}
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/50 via-transparent to-black/40 pointer-events-none" />
+      {/* Aesthetic Light Edge & Gradient Overlays */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/40 via-transparent to-[#FAF8F5] pointer-events-none" />
+      <div className="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,rgba(184,134,11,0.06)_0%,transparent_75%)] pointer-events-none" />
 
-      {/* Floating Glassmorphism Sound Mute Toggle (Subtle Micro-Control) */}
+      {/* Floating White Glassmorphism Sound Mute Toggle */}
       <motion.button
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.8, duration: 0.5 }}
         onClick={toggleMute}
         aria-label={isMuted ? "Unmute video audio" : "Mute video audio"}
-        className="absolute bottom-6 right-6 sm:bottom-10 sm:right-10 z-10 p-3 rounded-full bg-black/40 hover:bg-black/70 backdrop-blur-md border border-white/15 text-white/80 hover:text-white transition-all shadow-2xl active:scale-95 group"
+        className="absolute bottom-6 right-6 sm:bottom-10 sm:right-10 z-10 p-3 rounded-full bg-white/85 hover:bg-white backdrop-blur-md border border-[#E5D5B8] text-[#B8860B] hover:text-[#8C6207] transition-all shadow-xl active:scale-95 group gold-glow-sm"
       >
         {isMuted ? (
-          <VolumeX size={18} className="group-hover:scale-110 transition-transform" />
+          <VolumeX size={18} className="group-hover:scale-110 transition-transform text-[#B8860B]" />
         ) : (
-          <Volume2 size={18} className="group-hover:scale-110 transition-transform text-emerald-400" />
+          <Volume2 size={18} className="group-hover:scale-110 transition-transform text-[#B8860B]" />
         )}
       </motion.button>
     </section>

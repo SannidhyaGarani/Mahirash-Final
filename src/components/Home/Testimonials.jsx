@@ -156,9 +156,9 @@ const Testimonials = () => {
   if (loading || !settings.is_active) return null;
 
   return (
-    <section className="py-12 md:py-20 bg-[#f5f5f5] overflow-hidden relative border-t border-zinc-200">
+    <section className="py-14 md:py-24 bg-[#FAF8F5] overflow-hidden relative border-t border-[#E5D5B8]/40">
       {/* Luxury Ambient Radial Overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(201,169,98,0.03)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.06)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
@@ -166,15 +166,15 @@ const Testimonials = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="flex-1 flex flex-col md:flex-row md:items-end gap-6 md:gap-12">
             <div>
-              <p className="text-[10px] sm:text-xs tracking-[0.3em] text-[#b8860b] uppercase mb-2 font-semibold flex items-center gap-2">
-                <Quote size={13} className="text-[#b8860b]" />
+              <p className="text-[10px] sm:text-xs tracking-[0.3em] text-[#B8860B] uppercase mb-2 font-bold flex items-center gap-2">
+                <Quote size={13} className="text-[#B8860B]" />
                 {settings.eyebrow}
               </p>
-              <h2 className="text-xl sm:text-3xl lg:text-4xl font-extralight tracking-[0.15em] text-zinc-900 uppercase whitespace-nowrap">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extralight tracking-[0.15em] text-[#0D0D0D] uppercase whitespace-nowrap">
                 {settings.heading}
               </h2>
             </div>
-            <div className="hidden md:block flex-1 h-[1px] bg-zinc-200 mb-3" />
+            <div className="hidden md:block flex-1 h-[1px] bg-gradient-to-r from-[#B8860B]/40 via-[#E5D5B8] to-transparent mb-3" />
           </div>
 
           <div className="flex items-center gap-6 self-start md:self-auto">
@@ -182,14 +182,14 @@ const Testimonials = () => {
               <button
                 onClick={() => swiperRef.current?.slidePrev()}
                 aria-label="Previous review"
-                className="w-10 h-10 rounded-full border border-zinc-300 bg-white flex items-center justify-center text-zinc-600 hover:text-white hover:bg-[#b8860b] hover:border-[#b8860b] transition-all duration-300 cursor-pointer shadow-sm"
+                className="w-10 h-10 rounded-full border border-[#E5D5B8] bg-white flex items-center justify-center text-[#0D0D0D] hover:text-white hover:bg-[#0D0D0D] hover:border-[#0D0D0D] transition-all duration-300 cursor-pointer shadow-md"
               >
                 &larr;
               </button>
               <button
                 onClick={() => swiperRef.current?.slideNext()}
                 aria-label="Next review"
-                className="w-10 h-10 rounded-full border border-zinc-300 bg-white flex items-center justify-center text-zinc-600 hover:text-white hover:bg-[#b8860b] hover:border-[#b8860b] transition-all duration-300 cursor-pointer shadow-sm"
+                className="w-10 h-10 rounded-full border border-[#E5D5B8] bg-white flex items-center justify-center text-[#0D0D0D] hover:text-white hover:bg-[#0D0D0D] hover:border-[#0D0D0D] transition-all duration-300 cursor-pointer shadow-md"
               >
                 &rarr;
               </button>
@@ -227,60 +227,60 @@ const Testimonials = () => {
           >
             {reviews.map((item) => (
               <SwiperSlide key={item.id} className="h-full">
-                <div className="relative h-full flex flex-col justify-between bg-white border border-zinc-200 p-6 sm:p-8 transition-all duration-500 hover:border-[#c9a962]/80 hover:shadow-[0_15px_35px_rgba(184,134,11,0.12)] group">
+                <div className="relative h-full flex flex-col justify-between bg-white rounded-2xl border border-[#E5D5B8] p-6 sm:p-8 transition-all duration-500 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:border-[#B8860B] hover:shadow-[0_15px_35px_rgba(184,134,11,0.12)] group">
                   {/* Decorative Gold Top Accent Line */}
-                  <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#c9a962]/60 to-transparent group-hover:via-[#c9a962] transition-colors duration-500" />
+                  <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#B8860B]/60 to-transparent group-hover:via-[#B8860B] transition-colors duration-500" />
 
                   {/* Top Content: Stars & Fragrance Tag */}
                   <div>
                     <div className="flex items-center justify-between gap-3 mb-4">
-                      {/* 5 Gold Stars */}
+                      {/* 5 Imperial Gold Stars */}
                       <div className="flex items-center gap-1">
                         {[...Array(item.rating || 5)].map((_, idx) => (
-                          <Star key={idx} size={14} fill="#b8860b" stroke="#b8860b" />
+                          <Star key={idx} size={14} fill="#B8860B" stroke="#B8860B" />
                         ))}
                       </div>
 
                       {/* Verified Badge */}
-                      <span className="inline-flex items-center gap-1 text-[9px] uppercase tracking-[0.2em] font-bold text-[#b8860b] bg-[#fcf8f0] border border-[#c9a962]/30 px-2 py-0.5">
-                        <CheckCircle2 size={11} className="text-[#b8860b]" />
+                      <span className="inline-flex items-center gap-1.5 text-[9px] uppercase tracking-[0.2em] font-extrabold text-[#B8860B] bg-[#FAF8F5] border border-[#E5D5B8] px-2.5 py-1 rounded-full shadow-sm">
+                        <CheckCircle2 size={11} className="text-[#B8860B]" />
                         {item.status || 'Verified Patron'}
                       </span>
                     </div>
 
                     {/* Fragrance Tag */}
                     {item.fragrance && (
-                      <span className="text-[10px] uppercase tracking-[0.25em] font-semibold text-zinc-500 block mb-3">
+                      <span className="text-[10px] uppercase tracking-[0.25em] font-bold text-[#B8860B] block mb-3">
                         {item.fragrance}
                       </span>
                     )}
 
                     {/* Review Title */}
                     {item.title && (
-                      <h4 className="text-base sm:text-lg font-medium text-zinc-900 tracking-wide mb-3 leading-snug">
+                      <h4 className="text-base sm:text-lg font-medium text-[#0D0D0D] tracking-wide mb-3 leading-snug">
                         "{item.title}"
                       </h4>
                     )}
 
                     {/* Review Body */}
-                    <p className="text-zinc-600 text-xs sm:text-sm font-light leading-relaxed mb-6 italic">
+                    <p className="text-stone-600 text-xs sm:text-sm font-light leading-relaxed mb-6 italic">
                       "{item.review}"
                     </p>
                   </div>
 
                   {/* Bottom Content: Author & Location */}
-                  <div className="pt-4 border-t border-zinc-100 flex items-center justify-between mt-auto">
+                  <div className="pt-4 border-t border-[#E5D5B8]/50 flex items-center justify-between mt-auto">
                     <div>
-                      <h5 className="text-xs font-bold uppercase tracking-[0.15em] text-zinc-900">
+                      <h5 className="text-xs font-bold uppercase tracking-[0.15em] text-[#0D0D0D]">
                         {item.name}
                       </h5>
                       {item.location && (
-                        <span className="text-[10px] text-zinc-400 uppercase tracking-wider font-light">
+                        <span className="text-[10px] text-stone-500 uppercase tracking-wider font-light">
                           {item.location}
                         </span>
                       )}
                     </div>
-                    <Quote size={22} className="text-[#c9a962]/20 group-hover:text-[#c9a962]/40 transition-colors" />
+                    <Quote size={22} className="text-[#B8860B]/20 group-hover:text-[#B8860B]/50 transition-colors" />
                   </div>
                 </div>
               </SwiperSlide>
@@ -289,18 +289,18 @@ const Testimonials = () => {
         </div>
 
         {/* Social Proof Statistics Grid Row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-6 border-t border-zinc-200">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-8 border-t border-[#E5D5B8]/40">
           {stats.map((st) => {
             const Icon = IconMap[st.icon] || Star;
             return (
-              <div key={st.id} className="bg-white border border-zinc-200 p-5 text-center flex flex-col items-center justify-center hover:border-[#c9a962]/60 transition-colors duration-300 shadow-xs">
-                <div className="w-10 h-10 rounded-full bg-[#fcf8f0] border border-[#c9a962]/30 flex items-center justify-center mb-3">
-                  <Icon size={18} className="text-[#b8860b]" />
+              <div key={st.id} className="bg-white rounded-2xl border border-[#E5D5B8] p-6 text-center flex flex-col items-center justify-center hover:border-[#B8860B] transition-all duration-300 shadow-sm group">
+                <div className="w-11 h-11 rounded-full bg-[#FAF8F5] border border-[#E5D5B8] flex items-center justify-center mb-3 shadow-sm group-hover:scale-110 transition-transform">
+                  <Icon size={18} className="text-[#B8860B]" />
                 </div>
-                <span className="text-xl sm:text-2xl font-light tracking-wide text-zinc-900 uppercase leading-none mb-1">
+                <span className="text-xl sm:text-2xl font-bold tracking-wide text-[#0D0D0D] uppercase leading-none mb-1">
                   {st.value}
                 </span>
-                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-zinc-500">
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-stone-600">
                   {st.label}
                 </span>
               </div>

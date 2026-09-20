@@ -72,23 +72,23 @@ const RandomProductCard = ({ product, idx, triggerToast }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => navigate(`/product/${product.id}`)}
-      className="group relative cursor-pointer flex flex-col bg-white border border-zinc-200 transition-all duration-500 hover:border-[#c9a962]/80 hover:shadow-xl w-full"
+      className="group relative cursor-pointer flex flex-col bg-white rounded-2xl border border-[#E5D5B8] transition-all duration-500 hover:border-[#B8860B] shadow-[0_8px_25px_-5px_rgba(184,134,11,0.08)] hover:shadow-[0_15px_35px_-5px_rgba(184,134,11,0.18)] hover:-translate-y-1.5 w-full overflow-hidden"
     >
       {/* Product Image Area */}
-      <div className="relative w-full aspect-[2/3] overflow-hidden bg-[#fff] flex items-center justify-center">
+      <div className="relative w-full aspect-[2/3] overflow-hidden bg-[#FAF8F5] flex items-center justify-center">
         <OptimizedCloudinaryImage
           src={displayedImage}
           alt={product.name}
           preset="product-card"
-          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
         />
 
-        <div className="absolute inset-0 bg-black/[0.02] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
 
         {/* Out of Stock */}
         {isOutOfStock && (
-          <div className="absolute inset-0 z-20 bg-black/75 flex items-center justify-center">
-            <span className="bg-white text-black font-extrabold uppercase text-[9px] tracking-[0.2em] px-3 py-1.5">
+          <div className="absolute inset-0 z-20 bg-black/60 backdrop-blur-xs flex items-center justify-center">
+            <span className="bg-white text-zinc-900 border border-[#E5D5B8] font-extrabold uppercase text-[9px] tracking-[0.2em] px-3.5 py-1.5 rounded-full shadow-sm">
               Out of Stock
             </span>
           </div>
@@ -97,7 +97,7 @@ const RandomProductCard = ({ product, idx, triggerToast }) => {
         {/* Pre-Order Badge */}
         {isPreOrder && !isOutOfStock && (
           <div className="absolute top-3 left-3 z-10">
-            <span className="bg-gradient-to-r from-[#b8860b] to-[#d4af37] text-white uppercase text-[9px] font-extrabold tracking-[0.2em] px-2.5 py-1 rounded-none shadow-sm">
+            <span className="bg-gradient-to-r from-[#B8860B] via-[#D4AF37] to-[#B8860B] text-white font-black uppercase text-[9px] tracking-[0.2em] px-3 py-1 rounded-full shadow-md">
               PRE-ORDER
             </span>
           </div>
@@ -106,7 +106,7 @@ const RandomProductCard = ({ product, idx, triggerToast }) => {
         {/* Discount Badge */}
         {!isPreOrder && savingsPercent > 0 && !isOutOfStock && (
           <div className="absolute top-3 left-3 z-10">
-            <span className="bg-black text-white border border-[#c9a962]/50 uppercase text-[9px] font-bold tracking-[0.2em] px-2.5 py-1 rounded-none shadow-sm">
+            <span className="bg-[#0D0D0D] text-[#D4AF37] border border-[#B8860B]/40 uppercase text-[9px] font-extrabold tracking-[0.2em] px-3 py-1 rounded-full shadow-md">
               {savingsPercent}% OFF
             </span>
           </div>
@@ -115,25 +115,25 @@ const RandomProductCard = ({ product, idx, triggerToast }) => {
         {/* Wishlist Button */}
         <button
           onClick={(e) => handleAction(e, 'wishlist')}
-          className="absolute top-3 right-3 z-30 p-2 bg-white/90 backdrop-blur-sm rounded-full text-zinc-700 hover:text-black hover:scale-110 transition-all duration-300 shadow-sm cursor-pointer"
+          className="absolute top-3 right-3 z-30 p-2.5 rounded-full bg-white/90 backdrop-blur-md border border-[#E5D5B8] text-zinc-700 hover:text-black hover:border-[#B8860B] hover:scale-110 transition-all duration-300 pointer-events-auto cursor-pointer shadow-md"
           aria-label="Wishlist"
         >
           <Heart
             size={15}
-            strokeWidth={1.8}
-            fill={isWishlisted ? '#e53e3e' : 'none'}
-            stroke={isWishlisted ? '#e53e3e' : 'currentColor'}
+            strokeWidth={2}
+            fill={isWishlisted ? '#ef4444' : 'none'}
+            stroke={isWishlisted ? '#ef4444' : 'currentColor'}
           />
         </button>
 
         {/* Slide-up Add to Cart */}
         {!isOutOfStock && (
-          <div className="absolute bottom-0 inset-x-0 z-20 overflow-hidden h-10 pointer-events-auto">
+          <div className="absolute bottom-0 inset-x-0 z-20 overflow-hidden h-11 pointer-events-auto">
             <button
               onClick={(e) => handleAction(e, 'cart')}
               className={`w-full h-full text-[10px] tracking-[0.25em] font-extrabold uppercase transition-all duration-300 flex items-center justify-center ${isPreOrder
-                ? 'bg-gradient-to-r from-[#b8860b] via-[#d4af37] to-[#b8860b] text-black hover:brightness-110'
-                : 'bg-black text-white hover:bg-zinc-900'
+                ? 'bg-gradient-to-r from-[#B8860B] via-[#D4AF37] to-[#B8860B] text-white hover:brightness-110'
+                : 'bg-[#0D0D0D] text-white hover:bg-[#B8860B] shadow-lg'
                 } ${isHovered ? 'translate-y-0' : 'translate-y-full'}`}
             >
               {isInCart ? 'IN BAG' : isPreOrder ? 'PRE-ORDER NOW' : 'ADD TO CART'}
@@ -145,20 +145,21 @@ const RandomProductCard = ({ product, idx, triggerToast }) => {
       {/* Info Area */}
       <div className="p-4 flex flex-col text-left bg-white flex-1 justify-between">
         <div>
-          <div className="flex items-center gap-1.5 text-[9px] font-semibold tracking-[0.25em] text-[#b8860b] uppercase mb-1">
-            <span className="text-zinc-600 font-bold">{product.brand || 'MAHIRASH'}</span>
-            <span>• {product.category || 'EXTRAIT DE PARFUM'}</span>
+          <div className="flex items-center gap-1.5 text-[9px] font-bold tracking-[0.25em] text-[#B8860B] uppercase mb-1.5">
+            <span className="text-[#B8860B]">{product.brand || 'MAHIRASH'}</span>
+            <span className="text-zinc-300">•</span>
+            <span className="text-zinc-500">{product.category || 'EXTRAIT DE PARFUM'}</span>
           </div>
-          <h3 className="text-[14px] sm:text-sm font-medium text-zinc-900 uppercase tracking-wider line-clamp-1 leading-snug mb-2">
+          <h3 className="text-[14px] sm:text-sm font-semibold text-[#0D0D0D] uppercase tracking-wider line-clamp-1 leading-snug mb-2 group-hover:text-[#B8860B] transition-colors">
             {product.name}
           </h3>
         </div>
 
-        <div className="flex items-baseline gap-2.5 pt-2 border-t border-zinc-100">
+        <div className="flex items-baseline gap-2.5 pt-2.5 border-t border-zinc-100">
           <span className="text-[13px] text-zinc-400 line-through font-light">
             ₹{Number(originalPrice).toLocaleString('en-IN')}
           </span>
-          <span className="text-sm text-[#e53e3e] font-semibold tracking-wide">
+          <span className="text-sm text-[#B8860B] font-bold tracking-wide">
             ₹{Number(displayPrice).toLocaleString('en-IN')}
           </span>
         </div>
@@ -226,21 +227,21 @@ const RandomProducts = () => {
 
   if (loading) {
     return (
-      <section className="py-12 bg-[#f5f5f5] border-t border-zinc-200">
+      <section className="py-12 bg-[#FAF8F5] border-t border-[#E5D5B8]/60">
         <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <div className="h-3 w-32 bg-zinc-300 animate-pulse mb-3" />
-              <div className="h-8 w-64 bg-zinc-300 animate-pulse" />
+              <div className="h-3 w-32 bg-zinc-200 animate-pulse mb-3 rounded" />
+              <div className="h-8 w-64 bg-zinc-200 animate-pulse rounded" />
             </div>
-            <div className="w-28 h-9 bg-zinc-300 animate-pulse rounded-full" />
+            <div className="w-28 h-9 bg-zinc-200 animate-pulse rounded-full" />
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[...Array(4)].map((_, i) => (
-              <div key={i} className="bg-white border border-zinc-200 p-3 space-y-3">
-                <div className="aspect-[2/3] bg-zinc-200 animate-pulse" />
-                <div className="h-3 bg-zinc-200 animate-pulse w-2/3" />
-                <div className="h-4 bg-zinc-200 animate-pulse w-1/2" />
+              <div key={i} className="bg-white border border-[#E5D5B8] p-3 space-y-3 rounded-2xl">
+                <div className="aspect-[2/3] bg-zinc-100 animate-pulse rounded-xl" />
+                <div className="h-3 bg-zinc-200 animate-pulse w-2/3 rounded" />
+                <div className="h-4 bg-zinc-200 animate-pulse w-1/2 rounded" />
               </div>
             ))}
           </div>
@@ -250,42 +251,44 @@ const RandomProducts = () => {
   }
 
   return (
-    <section className="py-10 md:py-14 bg-[#f5f5f5] relative border-t border-zinc-200 overflow-hidden">
+    <section className="py-14 md:py-20 bg-[#FAF8F5] relative border-t border-[#E5D5B8]/60 overflow-hidden">
 
       {/* ── Dynamic Explore Banner ── */}
       {bannerData && (bannerData.desktop_image || bannerData.mobile_image) && bannerData.is_active !== false && (
-        <div className="w-full mb-10">
-          <Link to={bannerData.link || "/shop"} className="block relative w-full overflow-hidden group">
+        <div className="w-full mb-12 px-4 sm:px-6 lg:px-8 max-w-[1800px] mx-auto">
+          <Link to={bannerData.link || "/shop"} className="block relative w-full overflow-hidden rounded-2xl border border-[#E5D5B8] hover:border-[#B8860B] transition-all duration-500 shadow-lg group">
             <picture>
               {bannerData.desktop_image && <source media="(min-width: 1024px)" srcSet={bannerData.desktop_image} />}
               {bannerData.tablet_image && <source media="(min-width: 768px)" srcSet={bannerData.tablet_image} />}
               <img
                 src={bannerData.mobile_image || bannerData.desktop_image || bannerData.image_url}
                 alt="Explore Features"
-                className="w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02] m-0 p-0 block leading-[0]"
+                className="w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] m-0 p-0 block leading-[0]"
               />
             </picture>
-            <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300" />
           </Link>
         </div>
       )}
 
-      <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}
         <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6 px-1">
           <div className="flex-1 flex flex-col md:flex-row md:items-end gap-6 md:gap-12">
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <p className="text-[10px] sm:text-xs tracking-[0.3em] text-[#b8860b] uppercase font-semibold">
-                  CURATED DISCOVERIES · BESPOKE SELECTIONS
+                <p className="text-[10px] sm:text-xs tracking-[0.3em] text-[#B8860B] uppercase font-bold flex items-center gap-2">
+                  <span>CURATED DISCOVERIES</span>
+                  <span>•</span>
+                  <span>BESPOKE SELECTIONS</span>
                 </p>
               </div>
-              <h2 className="text-xl sm:text-3xl lg:text-4xl font-extralight tracking-[0.15em] text-zinc-900 uppercase whitespace-nowrap">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extralight tracking-[0.15em] text-[#0D0D0D] uppercase whitespace-nowrap">
                 EXPLORE ALL EXTRAITS & STYLES
               </h2>
             </div>
-            <div className="hidden md:block flex-1 h-[1px] bg-zinc-200 mb-3" />
+            <div className="hidden md:block flex-1 h-[1px] bg-gradient-to-r from-[#B8860B]/40 via-zinc-300 to-transparent mb-3" />
           </div>
 
           <div className="flex items-center gap-4 self-start md:self-auto">
@@ -293,11 +296,11 @@ const RandomProducts = () => {
               type="button"
               onClick={handleShuffle}
               disabled={isShuffling}
-              className="flex items-center gap-2.5 px-4.5 py-2.5 border border-[#c9a962]/60 bg-white text-zinc-800 hover:text-white hover:bg-[#b8860b] hover:border-[#b8860b] transition-all duration-300 text-[11px] font-bold uppercase tracking-[0.2em] shadow-sm rounded-none cursor-pointer group shrink-0"
+              className="flex items-center gap-2.5 px-5 py-2.5 border border-[#B8860B] bg-white text-[#B8860B] hover:text-white hover:bg-[#B8860B] transition-all duration-300 text-[11px] font-bold uppercase tracking-[0.2em] shadow-sm rounded-full cursor-pointer group shrink-0"
             >
               <Shuffle
                 size={14}
-                className={`transition-transform duration-500 ${isShuffling ? 'rotate-180 text-[#b8860b]' : 'group-hover:rotate-45'}`}
+                className={`transition-transform duration-500 ${isShuffling ? 'rotate-180 text-white' : 'group-hover:rotate-45'}`}
               />
               <span>Shuffle Order</span>
             </button>
@@ -326,10 +329,10 @@ const RandomProducts = () => {
         </AnimatePresence>
 
         {/* View All CTA */}
-        <div className="mt-12 md:mt-16 flex justify-center">
+        <div className="mt-14 md:mt-18 flex justify-center">
           <Link
             to="/shop"
-            className="group inline-flex items-center gap-3 px-10 py-4 border border-zinc-900 bg-zinc-900 text-white text-[11px] font-bold uppercase tracking-[0.28em] transition-all duration-300 hover:bg-white hover:text-black rounded-none shadow-md"
+            className="group inline-flex items-center gap-3 px-10 py-4 border border-[#0D0D0D] bg-[#0D0D0D] text-white text-[11px] font-extrabold uppercase tracking-[0.28em] transition-all duration-300 hover:bg-[#B8860B] hover:border-[#B8860B] rounded-full shadow-lg"
           >
             <span>View Full Catalogue</span>
             <ArrowRight size={15} className="transform group-hover:translate-x-1.5 transition-transform duration-300" />
@@ -345,9 +348,9 @@ const RandomProducts = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            className="fixed bottom-24 md:bottom-8 left-1/2 -translate-x-1/2 z-[200] bg-black border border-[#c9a962]/50 text-white px-6 py-3.5 rounded-none shadow-2xl flex items-center gap-3"
+            className="fixed bottom-24 md:bottom-8 left-1/2 -translate-x-1/2 z-[200] bg-[#0D0D0D] border border-[#B8860B] text-white px-7 py-3.5 rounded-full shadow-2xl flex items-center gap-3 gold-glow-sm"
           >
-            <p className="text-[12px] font-extrabold uppercase tracking-[0.2em] whitespace-nowrap text-[#c9a962]">{feedbackMessage}</p>
+            <p className="text-[12px] font-extrabold uppercase tracking-[0.2em] whitespace-nowrap text-[#D4AF37]">{feedbackMessage}</p>
             <button onClick={() => setFeedbackMessage(null)} className="opacity-60 hover:opacity-100 ml-1 text-white">
               <X size={14} />
             </button>

@@ -49,14 +49,14 @@ const BenefitsStrip = () => {
   if (loading || benefits.length === 0) return null;
 
   return (
-    <section className="relative bg-zinc-950 border-y border-[#c9a962]/30 py-3.5 overflow-hidden">
+    <section className="relative bg-[#F3EFE6] border-y border-[#C5A059]/30 py-4 overflow-hidden shadow-sm">
       {/* Subtle gold glowing top & bottom border accent lines */}
-      <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#c9a962]/50 to-transparent pointer-events-none" />
-      <div className="absolute bottom-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#c9a962]/50 to-transparent pointer-events-none" />
+      <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#B8860B]/40 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#B8860B]/40 to-transparent pointer-events-none" />
 
       <motion.div
         animate={{ x: ['0%', '-50%'] }}
-        transition={{ repeat: Infinity, duration: 20, ease: 'linear' }}
+        transition={{ repeat: Infinity, duration: 22, ease: 'linear' }}
         className="flex gap-0 whitespace-nowrap"
       >
         {[...benefits, ...benefits].map((item, i) => {
@@ -64,11 +64,11 @@ const BenefitsStrip = () => {
           return (
             <span
               key={i}
-              className="inline-flex items-center gap-3.5 px-10 text-[11px] font-semibold uppercase tracking-[0.25em] text-zinc-200"
+              className="inline-flex items-center gap-3.5 px-10 text-[11px] font-bold uppercase tracking-[0.25em] text-[#1A1A1A]"
             >
-              <Icon size={14} strokeWidth={2} className="text-[#c9a962] flex-shrink-0 drop-shadow-[0_0_8px_rgba(201,169,98,0.4)]" />
+              <Icon size={15} strokeWidth={2} className="text-[#B8860B] flex-shrink-0 drop-shadow-sm" />
               {item.text}
-              <span className="text-[#c9a962] text-[10px] ml-3.5 flex-shrink-0 opacity-80">✦</span>
+              <span className="text-[#B8860B] text-[10px] ml-3.5 flex-shrink-0 opacity-80">✦</span>
             </span>
           );
         })}

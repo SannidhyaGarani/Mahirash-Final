@@ -2,13 +2,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-cream: #F7F2EA;
-  --color-brand-primary: #5A2D0C;
-  --color-brand-primary-light: #8B5A3C;
-  --color-brand-accent: #A85721;
-  --color-brand-accent-light: #C87A3A;
-  --color-brand-gray: #E6D8C3;
-  --color-brand-gray-dark: #333333;
+  --color-brand-cream: #FAF8F5;
+  --color-brand-primary: #B8860B;
+  --color-brand-primary-light: #C5A059;
+  --color-brand-accent: #D4AF37;
+  --color-brand-accent-light: #E5D5B8;
+  --color-brand-gray: #F3EFE6;
+  --color-brand-gray-dark: #1A1A1A;
 
   --font-serif: "Playfair Display", serif;
   --font-sans: "Nunito", sans-serif;
@@ -21,10 +21,12 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: clip;
+    background-color: #FAF8F5;
+    color: #111111;
   }
 
   body {
-    @apply bg-[#f5f5f5] text-[#111111] font-sans antialiased min-h-screen text-[14px];
+    @apply bg-[#FAF8F5] text-[#111111] font-sans antialiased min-h-screen text-[14px];
     overflow-x: clip;
   }
 
@@ -34,45 +36,75 @@
   h4,
   h5,
   h6 {
-    @apply text-[#111111] font-heading;
+    @apply text-[#0D0D0D] font-heading;
   }
 
   ::selection {
-    background-color: #111111;
+    background-color: #B8860B;
     color: #ffffff;
   }
 }
 
+/* Luxury Light Shimmer & Glow Helpers */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #996515 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-glow-sm {
+  box-shadow: 0 4px 20px rgba(184, 134, 11, 0.15);
+}
+
+.gold-glow-lg {
+  box-shadow: 0 10px 35px rgba(184, 134, 11, 0.25);
+}
+
+.light-glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid #E5D5B8;
+  box-shadow: 0 8px 30px -5px rgba(184, 134, 11, 0.08);
+}
+
+.light-glass-card:hover {
+  border-color: #B8860B;
+  box-shadow: 0 15px 35px -5px rgba(184, 134, 11, 0.18);
+}
+
 /* Custom Swiper Pagination */
 .swiper-pagination-bullet {
-  width: 4px !important;
-  height: 4px !important;
-  background: rgba(0, 0, 0, 0.2) !important;
+  width: 6px !important;
+  height: 6px !important;
+  background: rgba(184, 134, 11, 0.3) !important;
   opacity: 1 !important;
   transition: all 0.3s ease !important;
-  border-radius: 2px !important;
+  border-radius: 3px !important;
 }
 
 .swiper-pagination-bullet-active {
-  width: 20px !important;
+  width: 24px !important;
   opacity: 1 !important;
-  background: #111111 !important;
-  border-radius: 2px !important;
+  background: #B8860B !important;
+  box-shadow: 0 0 10px rgba(184, 134, 11, 0.4) !important;
+  border-radius: 3px !important;
 }
 
 /* Testimonial dots override */
 .testimonial-dots .swiper-pagination-bullet {
-  width: 4px !important;
-  height: 4px !important;
-  border-radius: 2px !important;
-  background: rgba(0, 0, 0, 0.15) !important;
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 3px !important;
+  background: rgba(184, 134, 11, 0.3) !important;
   opacity: 1 !important;
 }
 
 .testimonial-dots .swiper-pagination-bullet-active {
-  width: 20px !important;
+  width: 24px !important;
   opacity: 1 !important;
-  background: #111111 !important;
+  background: #B8860B !important;
+  box-shadow: 0 0 10px rgba(184, 134, 11, 0.4) !important;
 }
 
 /* Line clamp utility */
